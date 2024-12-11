@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'English';
+  src: url('../assets/fonts/English.ttf') format('truetype'); 
+  font-weight: normal;
+
+}
+
+@font-face {
+  font-family: 'Chinese';
+  src: url('../assets/fonts/Chinese.ttf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --font-chinese: 'Chinese', 'Microsoft YaHei', sans-serif; /* 中文优先 */
+    --font-english: 'English', 'Arial', sans-serif;           /* 英文优先 */
+    cursor: none !important;
+  
+    &:hover {
+      cursor: none !important;
+    }
+  }
+  
+body {
+  font-family: var(--font-chinese);
+  background-color: rgb(240,240,240);
+  color: #282728;
+}
+
+.chinese {
+  font-family: var(--font-chinese);
+}
+
+.english {
+  font-family: var(--font-english);
+}
