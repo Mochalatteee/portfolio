@@ -13,6 +13,11 @@
   }
 }
 
+.cursor{
+  fill: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+}
+
 .cursor-outline {
   width: 30px;
   height: 30px;
