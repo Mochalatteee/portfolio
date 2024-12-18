@@ -48,7 +48,7 @@ return (
             </div>
 
         <div className="work-pic-ctn" ref={ref} >
-            <img className="work-pic" src={`../src/pages/Works/img/${id}.jpg`} key={id} alt="My work" />
+            <img className="work-pic" src={`./img/${id}.jpg`} key={id} alt="My work" />
         </div>
         </div>
         <motion.h2  className="work-li" style={{ y }}>{`0${id}.`}</motion.h2>
