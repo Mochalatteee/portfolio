@@ -1,4 +1,4 @@
-/* eslint-disable max-depth */
+ 
 import { dot } from './types';
 import P5 from 'p5';
 

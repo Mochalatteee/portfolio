@@ -1,5 +1,5 @@
-/* eslint-disable max-depth */
-/* eslint-disable max-lines-per-function */
+ 
+ 
 import { FC, useEffect, useRef } from 'react';
 import P5 from 'p5';
 import { Line } from '../../components/line';

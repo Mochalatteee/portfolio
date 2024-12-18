@@ -1,19 +1,20 @@
-import { motion } from 'framer-motion'
-import { Link, useLocation } from 'react-router-dom'
-import './style.scss'
+import React, { type FC } from "react";
+import { motion } from "framer-motion";
+import "./style.scss";
+import { $UI, type RouterType } from "../../store/ui";
 
-const Navbar = () => {
-  const location = useLocation()
-  const links = [
-    { path: '/', label: 'Home' },
-    { path: '/works', label: 'Works' },
-    { path: '/about', label: 'About' },
-  ]
+const Navbar: FC = () => {
+  const links: Array<{ path: string; label: RouterType }> = [
+    { path: "/", label: "Home" },
+    { path: "/works", label: "Works" },
+    { path: "/about", label: "About" },
+  ];
+  const currentPage = $UI.use((state) => state.page);
 
   return (
     <nav className="navbar">
       <div className="nav-content">
-        <motion.div 
+        <motion.div
           className="logo"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -29,18 +30,22 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <Link 
-                to={link.path}
-                className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
+              <div
+                onClick={() => {
+                  $UI.update("from navbar", (draft) => {
+                    draft.page = link.label;
+                  });
+                }}
+                className={`nav-link ${currentPage === link.label ? "active" : ""}`}
               >
                 {link.label}
-              </Link>
+              </div>
             </motion.div>
           ))}
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar 
+export default Navbar;
